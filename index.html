@@ -1,3 +1,11 @@
+        <!-- Música de pausa -->
+        <audio id="pause-music" loop>
+            <source src="audio/pause.mp3" type="audio/mpeg">
+        </audio>
+    <!-- Música de fondo -->
+    <audio id="background-music" loop>
+        <source src="audio/background.mp3" type="audio/mpeg">
+    </audio>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +15,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
+    <!-- START SCREEN -->
+     <div id="start-screen">
+        <h1>NEON FLOW</h1>
+        <button id="start-button">START MISSION</button>
+     </div>
+    
+    <!-- GAME SCREEN -->
+      <div id="game-screen" style="display: none; position: relative; width: 500px; height: 700px; margin: 0 auto; background: #111; overflow: hidden;">
+          <div id="score-display">SCORE: 0</div>
+      </div>
+    
+    <!-- GAME OVER SCREEN -->
+    <div id="game-over-screen" style="display: none; flex-direction: column; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); color: #fff; z-index: 999;">
+        <h1>MISSION FAILED</h1>
+        <p id="final-score">Score: 0</p>
+        <button id="reboot-button">REBOOT MISSION</button>
+    </div>
     
     <script type="module" src="js/main.js"></script>
 </body>

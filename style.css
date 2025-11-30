@@ -1,13 +1,142 @@
 /* Neon Flow - Styles */
 
+/* === RESET === */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0; /* Elimina márgenes por defecto de todos los elementos */
+  padding: 0; /* Elimina padding por defecto */
+  box-sizing: border-box; /* Incluye padding y border en el tamaño total del elemento */
 }
 
+/* === GLOBAL === */
 body {
-    font-family: 'Courier New', monospace;
-    background: #0a0a0a;
-    color: #00ff00;
+  font-family: "Courier New", monospace; /* Fuente estilo terminal/retro */
+  background: #0a0a0a; /* Negro casi puro (10, 10, 10 en RGB) */
+  color: #00ff00; /* Verde neón (color por defecto del texto) */
+  overflow: hidden; /* Oculta scrollbars (importante para pantalla completa) */
+}
+
+/* === START SCREEN === */
+#start-screen {
+  display: flex; /* Flexbox para centrar contenido */
+  flex-direction: column; /* Elementos apilados verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  justify-content: center; /* Centrar verticalmente */
+  width: 100vw; /* 100% del ancho de la ventana (viewport width) */
+  height: 100vh; /* 100% del alto de la ventana (viewport height) */
+  gap: 2rem; /* Espacio entre elementos (2rem = 32px aprox) */
+}
+
+#start-screen h1 {
+  font-size: 3rem; /* 3 veces el tamaño base (48px aprox) */
+  color: #00ff00; /* Verde neón puro */
+  text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; /* Doble sombra = brillo neón intenso */
+  letter-spacing: 0.3rem; /* Espacio entre letras (estilo arcade) */
+}
+
+#start-button {
+  padding: 1rem 2rem; /* Espaciado interno: 16px arriba/abajo, 32px izq/der */
+  font-family: "Courier New", monospace; /* Misma fuente que el body */
+  font-size: 1.2rem; /* Tamaño de fuente: 1.2 veces el tamaño base */
+  background: transparent; /* Fondo transparente (solo borde visible) */
+  color: #00ff00; /* Texto verde neón */
+  border: 2px solid #00ff00; /* Borde verde de 2px */
+  cursor: pointer; /* Cambia cursor a manita al pasar por encima */
+  transition: all 0.3s; /* Transición suave de 0.3 segundos para TODAS las propiedades */
+  text-shadow: 0 0 10px #00ff00; /* Brillo verde en el texto */
+}
+
+#start-button:hover {
+  /* Estilos cuando el mouse está encima */
+  background: #00ff00; /* Fondo verde (se llena) */
+  color: #0a0a0a; /* Texto negro (invierte colores) */
+  box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; /* Brillo alrededor del botón */
+  text-shadow: none; /* Quita sombra del texto (ya no necesita brillo) */
+}
+
+/* === GAME SCREEN === */
+#game-screen {
+  display: none; /* Oculto por defecto, se muestra cuando empieza el juego */
+  position: relative; /* Permite que elementos hijos usen position: absolute */
+  width: 500px; /* Ancho fijo: 500px (estrecho estilo arcade) */
+  height: 700px; /* Alto fijo: 700px estilo arcade */
+  margin: 0 auto; /* 0 arriba/abajo, auto izq/der = centrado horizontal */
+  background: linear-gradient(
+    180deg,
+    #0a0a0a 0%,
+    #1a0a2e 50%,
+    #0a0a0a 100%
+  ); /* Gradiente vertical: negro → púrpura → negro */
+  color: #00ff00; /* Color de texto verde neón */
+  border: 2px solid #00ff00; /* Borde verde de 2px */
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.3); /* Sombra/brillo verde alrededor (30% opacidad) */
+}
+
+#score-display {
+  position: absolute; /* Posicionamiento absoluto dentro de game-screen */
+  top: 20px; /* 20px desde arriba */
+  right: 20px; /* 20px desde la derecha */
+  font-size: 1.5rem; /* Tamaño de fuente grande */
+  color: #00ffff; /* Cyan neón */
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; /* Doble brillo cyan */
+  z-index: 100; /* Por encima de todos los elementos del juego */
+  font-weight: bold; /* Texto en negrita */
+  letter-spacing: 0.1rem; /* Espaciado entre letras */
+}
+
+/* === GAME OVER SCREEN === */
+#game-over-screen {
+  display: none; /* Oculto por defecto, se muestra cuando termina el juego */
+  flex-direction: column; /* Elementos apilados verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  justify-content: center; /* Centrar verticalmente */
+  width: 100vw; /* 100% del ancho de la ventana */
+  height: 100vh; /* 100% del alto de la ventana */
+  gap: 2rem; /* Espacio de 2rem entre elementos */
+  background: #0a0a0a; /* Fondo negro */
+}
+
+#game-over-screen h1 {
+  font-size: 3rem; /* Tamaño grande: 48px aprox */
+  color: #ff0066; /* Rosa/rojo neón (color de peligro/error) */
+  text-shadow: 0 0 20px #ff0066, 0 0 40px #ff0066; /* Doble sombra rosa = brillo intenso */
+  letter-spacing: 0.2rem; /* Separación entre letras */
+}
+
+#game-over-screen p {
+  font-size: 2rem; /* Tamaño mediano: 32px aprox */
+  color: #00ffff; /* Cyan neón (color de información) */
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff; /* Doble sombra cyan = brillo */
+}
+
+
+#reboot-button {
+  padding: 1rem 2rem; /* Espaciado interno: 16px vertical, 32px horizontal */
+  font-family: "Courier New", monospace; /* Fuente estilo terminal */
+  font-size: 1.2rem; /* Tamaño ligeramente más grande que el texto base */
+  background: transparent; /* Fondo transparente (solo borde) */
+  color: #00ff00; /* Texto verde neón */
+  border: 2px solid #00ff00; /* Borde verde de 2px */
+  cursor: pointer; /* Cursor de manita al pasar por encima */
+  transition: all 0.3s; /* Animación suave de 0.3 segundos */
+  text-shadow: 0 0 10px #00ff00; /* Brillo verde en el texto */
+}
+
+/* Unificar estilos de botón de inicio y reboot */
+#reboot-button, #start-button {
+  padding: 1rem 2rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  background: transparent;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+#reboot-button:hover, #start-button:hover {
+  background: #00ff00;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+  text-shadow: none;
 }
