@@ -1,11 +1,3 @@
-<!-- Música de pausa -->
-        <audio id="pause-music" loop>
-            <source src="audio/pause.mp3" type="audio/mpeg">
-        </audio>
-    <!-- Música de fondo -->
-    <audio id="background-music" loop>
-        <source src="audio/background.mp3" type="audio/mpeg">
-    </audio>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,35 +7,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <!-- Música de pausa -->
+    <audio id="pause-music" loop>
+        <source src="audio/pause.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Música de fondo -->
+    <audio id="background-music" loop>
+        <source src="audio/background.mp3" type="audio/mpeg">
+    </audio>
     <!-- START SCREEN -->
-         <div id="start-screen">
-                <h1>NEON FLOW</h1>
-                <p class="narrative">
-                    The System is flooding the city with corrupted data. You are the last Green Div rebel. Dodge the firewall fragments, destroy the rogue code, and keep the neon flow alive.
-                </p>
-                <p class="instructions">
-                    <strong>Controls:</strong><br>
-                    Arrow keys = Move<br>
-                    Spacebar = Shoot<br>
-                    P = Pause
-                </p>
-                <button id="start-button">START MISSION</button>
-         </div>
-    
+    <div id="start-screen">
+        <h1>NEON FLOW</h1>
+        <p class="narrative">
+            The System is flooding the city with corrupted data. You are the last Green Div rebel. Dodge the firewall fragments, destroy the rogue code, and keep Neon Flow alive.
+        </p>
+        <p class="instructions">
+            <strong>Controls:</strong><br>
+            Arrow keys = Move<br>
+            Spacebar = Shoot<br>
+            P = Pause
+        </p>
+        <button id="start-button">START MISSION</button>
+    </div>
     <!-- GAME SCREEN -->
-      <div id="game-screen" style="display: none; position: relative; width: 500px; height: 700px; margin: 0 auto; background: #111; overflow: hidden;">
-          <div id="score-display">SCORE: 0</div>
-      </div>
-    
+    <div id="game-screen" style="display: none; position: relative; width: 500px; height: 700px; margin: 0 auto; background: #111; overflow: hidden;">
+        <div id="score-display">SCORE: 0</div>
+    </div>
     <!-- GAME OVER SCREEN -->
     <div id="game-over-screen" style="display: none; flex-direction: column; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.8); color: #fff; z-index: 999;">
-        <h1>MISSION FAILED</h1>
+           <h1>DIGITAL OBLIVION</h1>
         <p class="gameover-message">The System has corrupted you. Will you fight back?</p>
         <p id="final-score">Score: 0</p>
         <button id="reboot-button">REBOOT MISSION</button>
     </div>
-    
+    <!-- Indicador de pausa -->
+    <div id="paused-indicator" style="display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%); color:#ff0; font-size:2rem; text-shadow:0 0 10px #ff0; z-index:1000;">PAUSED</div>
     <script type="module" src="js/main.js"></script>
 </body>
 </html>

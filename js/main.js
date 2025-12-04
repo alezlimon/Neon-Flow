@@ -81,12 +81,10 @@ startButton.addEventListener('click', () => {
             if (isPaused) {
                 backgroundMusic.pause(); // Pausa música de fondo
                 pauseMusic.play(); // Reproduce música de pausa
-                document.getElementById('paused-indicator').style.display = 'block'; // Muestra indicador
                 console.log('PAUSED');
             } else {
                 pauseMusic.pause(); // Pausa música de pausa
                 backgroundMusic.play(); // Reanuda música de fondo
-                document.getElementById('paused-indicator').style.display = 'none'; // Oculta indicador
                 console.log('RESUMED');
             }
             return;
