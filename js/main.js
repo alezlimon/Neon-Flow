@@ -57,7 +57,7 @@ startButton.addEventListener('click', () => {
             // Cada obstáculo tiene 50% de probabilidad de disparar cada 2 segundos
             const shootInterval = setInterval(() => {
                 if (!gameOver && !isPaused && obstacles.includes(obstacle) && Math.random() < 0.5) {
-                    const enemyBullet = new EnemyBullet(obstacle.left, obstacle.top, obstacle.width);
+                    const enemyBullet = new EnemyBullet(obstacle.left, obstacle.top, obstacle.width, obstacle.height);
                     enemyBullets.push(enemyBullet);
                 }
                 // Limpiar intervalo si el obstáculo ya no existe

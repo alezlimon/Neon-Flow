@@ -1,12 +1,12 @@
 // EnemyBullet class: representa una bala disparada por los obstáculos
 export default class EnemyBullet {
   // Constructor: crea la bala en la posición del obstáculo
-  constructor(obstacleLeft, obstacleTop, obstacleWidth) {
+  constructor(obstacleLeft, obstacleTop, obstacleWidth, obstacleHeight) {
     this.width = 5; // Ancho de la bala (px)
     this.height = 15; // Alto de la bala (px)
     // Centra la bala respecto al obstáculo
     this.left = obstacleLeft + obstacleWidth / 2 - this.width / 2;
-    this.top = obstacleTop; // Aparece justo debajo del obstáculo
+    this.top = obstacleTop + obstacleHeight; // Aparece justo debajo del obstáculo
 
     // Crea el elemento visual de la bala
     this.element = document.createElement("div");
@@ -15,8 +15,8 @@ export default class EnemyBullet {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
     this.element.style.position = "absolute";
-    this.element.style.backgroundColor = "#ff0066"; // Rosa como los obstáculos
-    this.element.style.boxShadow = "0 0 10px #ff0066, 0 0 20px #ff0066"; // Brillo
+    this.element.style.backgroundColor = "#ff0066"; // Mismo color que el obstáculo
+    this.element.style.boxShadow = "0 0 10px #ff0066, 0 0 20px #ff0066"; // Brillo rosa
 
     // Añade la bala al contenedor del juego
     const gameScreen = document.getElementById("game-screen");
