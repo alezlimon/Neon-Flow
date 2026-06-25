@@ -1,0 +1,25 @@
+{
+  "name": "neon-flow",
+  "version": "1.0.0",
+  "description": "In the neon lit ruins of the city’s network, the corrupted AI known as the System unleashes a digital apocalypse. Rogue data storms the grid, and the rebels’ firewalls, once legendary, are now shattered, their fragments raining down like the bones of a lost revolution. You are the Green Div Savior, a renegade of clean data, fighting to restore order and keep the neon flow alive in a world on the edge.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "C:\\Progra~1\\nodejs\\node.exe ./node_modules/live-server/live-server.js ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alezlimon/Neon-Flow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/alezlimon/Neon-Flow/issues"
+  },
+  "homepage": "https://github.com/alezlimon/Neon-Flow#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

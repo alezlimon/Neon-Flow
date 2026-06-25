@@ -2,10 +2,11 @@
 // Cada instancia es una bala que aparece en pantalla y se mueve hacia arriba
 class Bullet {
   // Constructor: crea una bala en la posición del jugador
-  constructor(gameScreen, playerLeft, playerTop, playerWidth) {
+  constructor(gameScreen, playerLeft, playerTop, playerWidth, diagonalDirection = 0) {
     this.gameScreen = gameScreen; // Referencia al contenedor del juego
     this.width = 5;               // Ancho de la bala (px)
-    this.height = 15;             // Alto de la bala (px)
+    this.height = 9;              // Alto de la bala (px)
+    this.diagonalDirection = diagonalDirection; // -2 para izquierda, +2 para derecha, 0 para recto
     // Centra la bala respecto al jugador
     this.left = playerLeft + playerWidth / 2 - this.width / 2;
     this.top = playerTop;         // Aparece justo encima del jugador
@@ -24,8 +25,10 @@ class Bullet {
 
   // Mueve la bala hacia arriba (llamado en cada frame)
   move() {
-    this.top -= 2; // Resta 2px a la posición superior (sube)
+    this.top -= 4; // Mayor velocidad vertical para compensar la menor cadencia
+    this.left += this.diagonalDirection; // Suma la dirección diagonal fija (-2, 0, o +2)
     this.element.style.top = `${this.top}px`; // Actualiza visualmente
+    this.element.style.left = `${this.left}px`;
   }
 
   // Verifica si la bala salió de la pantalla (por arriba)
